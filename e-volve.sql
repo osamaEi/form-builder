@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2023 at 10:21 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Oct 27, 2023 at 06:23 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -55,9 +55,11 @@ CREATE TABLE `form_data` (
 --
 
 INSERT INTO `form_data` (`id`, `data`, `created_at`, `updated_at`) VALUES
-(1, '\"[{\\\"type\\\":\\\"hidden\\\",\\\"name\\\":\\\"hidden-1696889350265-0\\\",\\\"access\\\":false},{\\\"type\\\":\\\"radio-group\\\",\\\"required\\\":false,\\\"label\\\":\\\"Radio Group\\\",\\\"inline\\\":false,\\\"name\\\":\\\"radio-group-1696889350688-0\\\",\\\"access\\\":false,\\\"other\\\":false,\\\"values\\\":[{\\\"label\\\":\\\"Option 1\\\",\\\"value\\\":\\\"option-1\\\",\\\"selected\\\":false},{\\\"label\\\":\\\"Option 2\\\",\\\"value\\\":\\\"option-2\\\",\\\"selected\\\":false},{\\\"label\\\":\\\"Option 3\\\",\\\"value\\\":\\\"option-3\\\",\\\"selected\\\":false}]},{\\\"type\\\":\\\"header\\\",\\\"subtype\\\":\\\"h1\\\",\\\"label\\\":\\\"Header\\\",\\\"access\\\":false},{\\\"type\\\":\\\"checkbox-group\\\",\\\"required\\\":false,\\\"label\\\":\\\"Checkbox Group\\\",\\\"toggle\\\":false,\\\"inline\\\":false,\\\"name\\\":\\\"checkbox-group-1696889351416-0\\\",\\\"access\\\":false,\\\"other\\\":false,\\\"values\\\":[{\\\"label\\\":\\\"Option 1\\\",\\\"value\\\":\\\"option-1\\\",\\\"selected\\\":true}]}]\"', '2023-10-09 19:09:14', '2023-10-09 19:09:14'),
-(2, '\"[{\\\"type\\\":\\\"file\\\",\\\"required\\\":false,\\\"label\\\":\\\"File Upload\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"file-1696889386369-0\\\",\\\"access\\\":false,\\\"subtype\\\":\\\"file\\\",\\\"multiple\\\":false},{\\\"type\\\":\\\"hidden\\\",\\\"name\\\":\\\"hidden-1696889386712-0\\\",\\\"access\\\":false},{\\\"type\\\":\\\"paragraph\\\",\\\"subtype\\\":\\\"p\\\",\\\"label\\\":\\\"Paragraph\\\",\\\"access\\\":false},{\\\"type\\\":\\\"paragraph\\\",\\\"subtype\\\":\\\"p\\\",\\\"label\\\":\\\"Paragraph\\\",\\\"access\\\":false}]\"', '2023-10-09 19:09:49', '2023-10-09 19:09:49'),
-(3, '\"[{\\\"type\\\":\\\"date\\\",\\\"required\\\":false,\\\"label\\\":\\\"Date Field\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"date-1696889414504-0\\\",\\\"access\\\":false},{\\\"type\\\":\\\"hidden\\\",\\\"name\\\":\\\"hidden-1696889414848-0\\\",\\\"access\\\":false},{\\\"type\\\":\\\"radio-group\\\",\\\"required\\\":false,\\\"label\\\":\\\"Radio Group\\\",\\\"inline\\\":false,\\\"name\\\":\\\"radio-group-1696889415224-0\\\",\\\"access\\\":false,\\\"other\\\":false,\\\"values\\\":[{\\\"label\\\":\\\"Option 1\\\",\\\"value\\\":\\\"option-1\\\",\\\"selected\\\":false},{\\\"label\\\":\\\"Option 2\\\",\\\"value\\\":\\\"option-2\\\",\\\"selected\\\":false},{\\\"label\\\":\\\"Option 3\\\",\\\"value\\\":\\\"option-3\\\",\\\"selected\\\":false}]},{\\\"type\\\":\\\"date\\\",\\\"required\\\":false,\\\"label\\\":\\\"Date Field\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"date-1696889415592-0\\\",\\\"access\\\":false},{\\\"type\\\":\\\"button\\\",\\\"label\\\":\\\"Button\\\",\\\"subtype\\\":\\\"button\\\",\\\"className\\\":\\\"btn-default btn\\\",\\\"name\\\":\\\"button-1696889415928-0\\\",\\\"access\\\":false,\\\"style\\\":\\\"default\\\"},{\\\"type\\\":\\\"hidden\\\",\\\"name\\\":\\\"hidden-1696889416232-0\\\",\\\"access\\\":false},{\\\"type\\\":\\\"radio-group\\\",\\\"required\\\":false,\\\"label\\\":\\\"Radio Group\\\",\\\"inline\\\":false,\\\"name\\\":\\\"radio-group-1696889416552-0\\\",\\\"access\\\":false,\\\"other\\\":false,\\\"values\\\":[{\\\"label\\\":\\\"Option 1\\\",\\\"value\\\":\\\"option-1\\\",\\\"selected\\\":false},{\\\"label\\\":\\\"Option 2\\\",\\\"value\\\":\\\"option-2\\\",\\\"selected\\\":false},{\\\"label\\\":\\\"Option 3\\\",\\\"value\\\":\\\"option-3\\\",\\\"selected\\\":false}]}]\"', '2023-10-09 19:10:17', '2023-10-09 19:10:17');
+(14, '\"[{\\\"type\\\":\\\"button\\\",\\\"label\\\":\\\"Button\\\",\\\"subtype\\\":\\\"button\\\",\\\"className\\\":\\\"btn-default btn\\\",\\\"name\\\":\\\"button-1697186205391-0\\\",\\\"access\\\":false,\\\"style\\\":\\\"default\\\"},{\\\"type\\\":\\\"date\\\",\\\"required\\\":false,\\\"label\\\":\\\"Date Field\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"date-1697186205958-0\\\",\\\"access\\\":false},{\\\"type\\\":\\\"header\\\",\\\"subtype\\\":\\\"h1\\\",\\\"label\\\":\\\"Header\\\",\\\"access\\\":false},{\\\"type\\\":\\\"number\\\",\\\"required\\\":false,\\\"label\\\":\\\"count number<br>\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"number-1697186207014-0\\\",\\\"access\\\":false},{\\\"type\\\":\\\"paragraph\\\",\\\"subtype\\\":\\\"p\\\",\\\"label\\\":\\\"Paragraph\\\",\\\"access\\\":false},{\\\"type\\\":\\\"text\\\",\\\"required\\\":false,\\\"label\\\":\\\"your name<br>\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"text-1697186235574-0\\\",\\\"access\\\":false,\\\"subtype\\\":\\\"text\\\"}]\"', '2023-10-13 06:37:27', '2023-10-13 06:37:27'),
+(15, '\"[{\\\"type\\\":\\\"number\\\",\\\"required\\\":true,\\\"label\\\":\\\"Number\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"number-1697186284215-0\\\",\\\"access\\\":false}]\"', '2023-10-13 06:38:19', '2023-10-13 06:38:19'),
+(16, '\"[{\\\"type\\\":\\\"number\\\",\\\"required\\\":true,\\\"label\\\":\\\"Number\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"number-1697186284215-0\\\",\\\"access\\\":false},{\\\"type\\\":\\\"number\\\",\\\"required\\\":false,\\\"label\\\":\\\"Number\\\",\\\"description\\\":\\\"ouuuuu\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"number-1697186315999-0\\\",\\\"access\\\":false}]\"', '2023-10-13 06:38:53', '2023-10-13 06:38:53'),
+(17, '\"[{\\\"type\\\":\\\"header\\\",\\\"subtype\\\":\\\"h1\\\",\\\"label\\\":\\\"Header\\\",\\\"access\\\":false},{\\\"type\\\":\\\"header\\\",\\\"subtype\\\":\\\"h1\\\",\\\"label\\\":\\\"Header\\\",\\\"access\\\":false},{\\\"type\\\":\\\"hidden\\\",\\\"name\\\":\\\"hidden-1697383737840-0\\\",\\\"access\\\":false},{\\\"type\\\":\\\"file\\\",\\\"required\\\":false,\\\"label\\\":\\\"File Upload\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"file-1697383738184-0\\\",\\\"access\\\":false,\\\"subtype\\\":\\\"file\\\",\\\"multiple\\\":false},{\\\"type\\\":\\\"checkbox-group\\\",\\\"required\\\":false,\\\"label\\\":\\\"Checkbox Group\\\",\\\"toggle\\\":false,\\\"inline\\\":false,\\\"name\\\":\\\"checkbox-group-1697383738496-0\\\",\\\"access\\\":false,\\\"other\\\":false,\\\"values\\\":[{\\\"label\\\":\\\"Option 1\\\",\\\"value\\\":\\\"option-1\\\",\\\"selected\\\":true}]},{\\\"type\\\":\\\"paragraph\\\",\\\"subtype\\\":\\\"p\\\",\\\"label\\\":\\\"Paragraph\\\",\\\"access\\\":false},{\\\"type\\\":\\\"select\\\",\\\"required\\\":false,\\\"label\\\":\\\"Select\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"select-1697383740007-0\\\",\\\"access\\\":false,\\\"multiple\\\":false,\\\"values\\\":[{\\\"label\\\":\\\"Option 1\\\",\\\"value\\\":\\\"option-1\\\",\\\"selected\\\":true},{\\\"label\\\":\\\"Option 2\\\",\\\"value\\\":\\\"option-2\\\",\\\"selected\\\":false},{\\\"label\\\":\\\"Option 3\\\",\\\"value\\\":\\\"option-3\\\",\\\"selected\\\":false}]}]\"', '2023-10-15 12:29:04', '2023-10-15 12:29:04'),
+(18, '\"[{\\\"type\\\":\\\"header\\\",\\\"subtype\\\":\\\"h1\\\",\\\"label\\\":\\\"Header\\\",\\\"access\\\":false},{\\\"type\\\":\\\"hidden\\\",\\\"name\\\":\\\"hidden-1697427685392-0\\\",\\\"access\\\":false},{\\\"type\\\":\\\"radio-group\\\",\\\"required\\\":false,\\\"label\\\":\\\"Radio Group\\\",\\\"inline\\\":false,\\\"name\\\":\\\"radio-group-1697427685933-0\\\",\\\"access\\\":false,\\\"other\\\":false,\\\"values\\\":[{\\\"label\\\":\\\"Option 1\\\",\\\"value\\\":\\\"option-1\\\",\\\"selected\\\":false},{\\\"label\\\":\\\"Option 2\\\",\\\"value\\\":\\\"option-2\\\",\\\"selected\\\":false},{\\\"label\\\":\\\"Option 3\\\",\\\"value\\\":\\\"option-3\\\",\\\"selected\\\":false}]},{\\\"type\\\":\\\"checkbox-group\\\",\\\"required\\\":false,\\\"label\\\":\\\"Checkbox Group\\\",\\\"toggle\\\":false,\\\"inline\\\":false,\\\"name\\\":\\\"checkbox-group-1697427687140-0\\\",\\\"access\\\":false,\\\"other\\\":false,\\\"values\\\":[{\\\"label\\\":\\\"Option 1\\\",\\\"value\\\":\\\"option-1\\\",\\\"selected\\\":true}]},{\\\"type\\\":\\\"button\\\",\\\"label\\\":\\\"Button\\\",\\\"subtype\\\":\\\"button\\\",\\\"className\\\":\\\"btn-default btn\\\",\\\"name\\\":\\\"button-1697427687726-0\\\",\\\"access\\\":false,\\\"style\\\":\\\"default\\\"},{\\\"type\\\":\\\"text\\\",\\\"required\\\":false,\\\"label\\\":\\\"Text Field\\\",\\\"className\\\":\\\"form-control\\\",\\\"name\\\":\\\"text-1697427686496-0\\\",\\\"access\\\":false,\\\"subtype\\\":\\\"text\\\"}]\"', '2023-10-16 00:41:30', '2023-10-16 00:41:30');
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,7 @@ INSERT INTO `form_data` (`id`, `data`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -98,8 +100,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -110,8 +112,8 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -123,8 +125,8 @@ CREATE TABLE `password_reset_tokens` (
 
 CREATE TABLE `permissions` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -137,11 +139,11 @@ CREATE TABLE `permissions` (
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -156,8 +158,8 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `roles` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -192,10 +194,10 @@ CREATE TABLE `role_permission` (
 CREATE TABLE `subscriptions` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_price` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `stripe_id` varchar(255) NOT NULL,
+  `stripe_status` varchar(255) NOT NULL,
+  `stripe_price` varchar(255) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   `trial_ends_at` timestamp NULL DEFAULT NULL,
   `ends_at` timestamp NULL DEFAULT NULL,
@@ -212,9 +214,9 @@ CREATE TABLE `subscriptions` (
 CREATE TABLE `subscription_items` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `subscription_id` bigint(20) UNSIGNED NOT NULL,
-  `stripe_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_product` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stripe_id` varchar(255) NOT NULL,
+  `stripe_product` varchar(255) NOT NULL,
+  `stripe_price` varchar(255) NOT NULL,
   `quantity` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -228,18 +230,18 @@ CREATE TABLE `subscription_items` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `account` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `balance` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `account` varchar(255) DEFAULT NULL,
+  `balance` varchar(255) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `stripe_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pm_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pm_last_four` varchar(4) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `stripe_id` varchar(255) DEFAULT NULL,
+  `pm_type` varchar(255) DEFAULT NULL,
+  `pm_last_four` varchar(4) DEFAULT NULL,
   `trial_ends_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -390,7 +392,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `form_data`
 --
 ALTER TABLE `form_data`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `migrations`
