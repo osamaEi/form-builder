@@ -45,6 +45,8 @@ Route::post('/save-form-data', [FormController::class,'saveFormData'])->name('sa
 
 Route::get('/form-data', [FormController::class,'getFormData'])->name('get-selected-inputs');
 
+Route::get('/form-data/{id}', [FormController::class,'getFormDataById'])->name('getFormDataById');
+
 Route::post('/storeDynamicFormData', [FormController::class,'storeDynamicFormData'])->name('storeDynamicFormData');
 
 

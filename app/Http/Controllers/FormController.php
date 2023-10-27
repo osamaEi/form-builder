@@ -25,20 +25,31 @@ class FormController extends Controller
 
 public function getFormData()
 {
-    // Retrieve the data from the database
-    $formDataRecords = FormData::all(); // Replace 'YourModel' with the actual model name
+    $formDataRecords = FormData::all(); 
 
-    // Initialize an array to store the parsed form data
     $forms = [];
 
-    // Loop through each database record and parse the JSON data
+    
     foreach ($formDataRecords as $record) {
         $formData = json_decode($record->data, true);
         $forms[] = $formData;
     }
-
-    // Pass the parsed form data to the view
     return view('index', compact('forms'));
+}
+
+
+public function getFormDataById($id) {
+    $formDataRecord = FormData::find($id);
+
+    if ($formDataRecord) {
+        // Record exists, proceed to decode and display the form data
+        $formData = json_decode($formDataRecord->data, true);
+        $forms = [$formData];
+        return view('form', compact('forms'));
+    } else {
+        // Handle the case where the record with the given ID does not exist
+        return redirect()->back()->with('error', 'Form data not found.');
+    }
 }
 
 
@@ -55,6 +66,10 @@ public function storeDynamicFormData(Request $request)
 
     foreach ($forms as $formData){
         $fields = json_decode($formData, true);
+
+    
+
+
     foreach ($fields as $field){
 
 
@@ -62,6 +77,7 @@ public function storeDynamicFormData(Request $request)
         if ($field['type'] === 'number') {
             // Handle number input
             $fieldName = $field['name'];
+            
             $fieldValue = $request->input($fieldName);
 
             // You may add validation rules for the number field here
@@ -73,21 +89,22 @@ public function storeDynamicFormData(Request $request)
             // Handle text input
             $fieldName = $field['name'];
             $fieldValue = $request->input($fieldName);
-
+ 
             // You may add validation rules for the text field here
 
             Job::create([
                 'name'=> $fieldValue,
             ]);
         }
-    
     }
+    
 
 }
     return redirect()->back();
 }
 
 
-
-
 }
+
+
+
