@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <form method="POST" action="{{ route('get-selected-inputs') }}" class="mt-5">
+    <div class="container"> 
+        <form method="POST" action="{{ route('storeDynamicFormData') }}" class="mt-5">
             @csrf
             <ul>
                 @foreach ($forms as $formData)
