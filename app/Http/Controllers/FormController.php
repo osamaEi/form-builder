@@ -45,12 +45,21 @@ public function getFormData()
 
 public function storeDynamicFormData(Request $request)
 {
-    $formData = $request->all();
+    $formDataRecords = FormData::all(); 
+    $forms = [];
+  
+    foreach ($formDataRecords as $record) {
+        $formData = json_decode($record->data, true);
+        $forms[] = $formData;
+    }
 
-    foreach ($formData as $fieldData) {
-        $field = json_decode($fieldData, true);
+    foreach ($forms as $formData){
+        $fields = json_decode($formData, true);
+    foreach ($fields as $field){
 
-        if ($field['type'] == 'number') {
+
+
+        if ($field['type'] === 'number') {
             // Handle number input
             $fieldName = $field['name'];
             $fieldValue = $request->input($fieldName);
@@ -58,9 +67,9 @@ public function storeDynamicFormData(Request $request)
             // You may add validation rules for the number field here
 
             Job::create([
-                $fieldName => $fieldValue,
+                'id_national' => $fieldValue,
             ]);
-        } elseif ($field['type'] == 'text') {
+        } elseif ($field['type'] ==='text') {
             // Handle text input
             $fieldName = $field['name'];
             $fieldValue = $request->input($fieldName);
@@ -68,14 +77,14 @@ public function storeDynamicFormData(Request $request)
             // You may add validation rules for the text field here
 
             Job::create([
-                $fieldName => $fieldValue,
+                'name'=> $fieldValue,
             ]);
         }
-        // Add more conditions to handle other field types (date, button, header, etc.) as needed
+    
     }
 
-    // Redirect to a success page or any other action you need
-    return redirect()->route('success')->with('success', 'Form data saved successfully');
+}
+    return redirect()->back();
 }
 
 
