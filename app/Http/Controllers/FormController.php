@@ -69,37 +69,32 @@ public function storeDynamicFormData(Request $request)
 
     
 
-
-    foreach ($fields as $field){
-
-
-
-        if ($field['type'] === 'number') {
-            // Handle number input
-            $fieldName = $field['name'];
-            
-            $fieldValue = $request->input($fieldName);
-
-            // You may add validation rules for the number field here
-
-            Job::create([
-                'id_national' => $fieldValue,
-            ]);
-        } elseif ($field['type'] ==='text') {
-            // Handle text input
-            $fieldName = $field['name'];
-            $fieldValue = $request->input($fieldName);
- 
-            // You may add validation rules for the text field here
-
-            Job::create([
-                'name'=> $fieldValue,
-            ]);
+        $firstNumberField = null;
+        $firstTextField = null;
+        
+        foreach ($fields as $field) {
+            if ($field['type'] === 'number' && $firstNumberField === null) {
+                $fieldName = $field['name'];
+                $firstNumberField = $request->input($fieldName);
+            } elseif ($field['type'] === 'text' && $firstTextField === null) {
+                $fieldName = $field['name'];
+                $firstTextField = $request->input($fieldName);
+            }
         }
-    }
-    
-
+        
+        if ($firstNumberField !== null && $firstTextField !== null) {
+            Job::create([
+                'name' => $firstTextField,
+                'id_national' => $firstNumberField
+            ]);
+        } else {
+            return redirect()->back();
+        }
+        
 }
+
+
+    
     return redirect()->back();
 }
 
